@@ -18,11 +18,17 @@ public class MapController {
 		return "coucou";
 	}
 	
+	@GetMapping("dir")
+	public String getDir() {
+		System.out.println(System.getProperty("user.dir")+"\\src\\main\\resources\\data-topojson.properties");
+		return System.getProperty("user.dir");
+	}
+	
 	@GetMapping("topojson")
 	public String obtenirLaListsfrgrrdgvdeDesCommunes() throws Exception {
 		JSONObject jsonTopojson = null;
 		try {
-		      File myObj = new File("src\\main\\resources\\data-topojson.properties");
+		      File myObj = new File(System.getProperty("user.dir")+"\\src\\main\\resources\\data-topojson.txt");
 		      @SuppressWarnings("resource")
 			Scanner myReader = new Scanner(myObj);
 		      String stringTopojson = "";
