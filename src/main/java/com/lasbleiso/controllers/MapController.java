@@ -43,7 +43,7 @@ public class MapController {
 		JSONObject jsonTopojson = null;
 		try {
 			
-	        File myObj = getFileFromResources("data-topojson.txt");
+	        File myObj = getFileFromResources("application.properties");
 			//File myObj = new File(
 				//	getClass().getClassLoader().getResource("data-topojson.txt").getFile()
 				//);
