@@ -22,7 +22,7 @@ public class MapController {
 	public String obtenirLaListsfrgrrdgvdeDesCommunes() throws Exception {
 		JSONObject jsonTopojson = null;
 		try {
-		      File myObj = new File("src\\main\\resources\\data-map.txt");
+		      File myObj = new File("src\\main\\resources\\data-topojson.txt");
 		      @SuppressWarnings("resource")
 			Scanner myReader = new Scanner(myObj);
 		      String stringTopojson = "";
