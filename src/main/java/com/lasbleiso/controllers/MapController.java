@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 import org.json.JSONObject;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,19 +21,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("map")
 public class MapController {
-	
+	private ResourceLoader resourceLoader;
 	@GetMapping("coucou")
 	public String getTopojson() {
 		return "coucou";
 	}
 	
-	@GetMapping("dir")
-	public String getDir() {
-		
-		
-		return System.getProperty("user.dir").toString();
-		
-	}
+	
 	
 	
 	
@@ -42,8 +38,9 @@ public class MapController {
 	public String obtenirLaListsfrgrrdgvdeDesCommunes() throws Exception {
 		JSONObject jsonTopojson = null;
 		try {
-			
-	        File myObj = getFileFromResources("application.properties");
+			Resource resource = resourceLoader.getResource("classpath:data-topojson.txt");
+            File myObj = resource.getFile();
+	       // File myObj = getFileFromResources("application.properties");
 			//File myObj = new File(
 				//	getClass().getClassLoader().getResource("data-topojson.txt").getFile()
 				//);
