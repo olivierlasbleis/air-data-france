@@ -24,9 +24,6 @@ import lombok.NoArgsConstructor;
  *
  */
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class Commune extends Zone implements Serializable{
 
 	
