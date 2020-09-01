@@ -3,6 +3,7 @@ package com.lasbleiso.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,23 +27,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Commune implements Serializable {
+public class Commune extends Zone implements Serializable{
 
-	/**
-	 * codeCommune : String est le code insee de la commune, un code insee est
-	 * attribué par l'état à chaque commune et est unique à chaque commune en
-	 * France (contrairement au code postal), exemple: code insee de nantes:
-	 * 44109
-	 */
-	@Id
-	private String codeCommune;
-	/** nom : String est le nom de la commune (exemple: Nantes) */
-	private String nom;
+	
 	/** latitude : Double est la latitude de la commune */
 	private Double latitude;
 	/** longitude : Double est la longitude de la commune */
 	private Double longitude;
-
+	
 	/**
 	 * stationDeMesureMeteo : StationDeMesureMeteo est la station de mesure
 	 * Meteo la plus proche de la commune
@@ -92,6 +84,11 @@ public class Commune implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "StationPollutionCO_id")
 	StationPollution stationPollutionCO;
+	
+	@ManyToOne
+	@JoinColumn(name = "Departement_codeDepartement")
+	Departement departement;
+
 
 	
 	public Commune() {
@@ -99,19 +96,17 @@ public class Commune implements Serializable {
 	}	
 		
 	public Commune(String codeCommune, String nom, Double latitude, Double longitude) {
-		super();
-		this.codeCommune = codeCommune;
-		this.nom = nom;
+		super(codeCommune,nom);
 		this.latitude = latitude;
 		this.longitude = longitude;
 	}
 
 	public String getCodeCommune() {
-		return codeCommune;
+		return code;
 	}
 
 	public void setCodeCommune(String codeCommune) {
-		this.codeCommune = codeCommune;
+		this.code = codeCommune;
 	}
 
 	public String getNom() {
@@ -187,6 +182,16 @@ public class Commune implements Serializable {
 	public void setStationPollutionCO(StationPollution stationPollutionCO) {
 		this.stationPollutionCO = stationPollutionCO;
 	}
+
+	public Departement getDepartement() {
+		return departement;
+	}
+
+	public void setDepartement(Zone zone) {
+		this.departement = (Departement) zone;
+	}
+
+	
 
 	
 }

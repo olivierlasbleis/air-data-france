@@ -32,42 +32,6 @@ public class StationPollution {
 	 * longitude de la station
 	 */
 	private Double longitude;
-	/**
-	 * dernière mesure du pollant cité
-	 */
-	@ManyToOne
-	@JoinColumn(name = "MesureSO2_id")
-	private MesurePollution mesureSO2;
-	/**
-	 * dernière mesure du pollant cité
-	 */
-	@ManyToOne
-	@JoinColumn(name = "MesureNO2_id")
-	private MesurePollution mesureNO2;
-	/**
-	 * dernière mesure du pollant cité
-	 */
-	@ManyToOne
-	@JoinColumn(name = "MesurePM10_id")
-	private MesurePollution mesurePM10;
-	/**
-	 * dernière mesure du pollant cité
-	 */
-	@ManyToOne
-	@JoinColumn(name = "MesurePM25_id")
-	private MesurePollution mesurePM25;
-	/**
-	 * dernière mesure du pollant cité
-	 */
-	@ManyToOne
-	@JoinColumn(name = "MesureCO_id")
-	private MesurePollution mesureCO;
-	/**
-	 * dernière mesure du pollant cité
-	 */
-	@ManyToOne
-	@JoinColumn(name = "MesureO3_id")
-	private MesurePollution mesureO3;
 	
 	
 	public StationPollution(Double latitude, Double longitude) {

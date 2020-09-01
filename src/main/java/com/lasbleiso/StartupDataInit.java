@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 
 import com.lasbleiso.entities.MesurePollution;
 import com.lasbleiso.entities.StationPollution;
-import com.lasbleiso.entities.ValueCommunePollution;
-import com.lasbleiso.services.ValueCommunePollutionService;
 import com.lasbleiso.utils.InitUtils;
 
 
@@ -27,8 +25,6 @@ public class StartupDataInit {
 	@Value("${data.init}")
 	private Boolean isDataInit;
 
-	@Autowired
-	ValueCommunePollutionService valueCommunePollutionService;
 	
 	@Autowired
 	InitUtils initUtils;
@@ -46,13 +42,11 @@ public class StartupDataInit {
 	// La méthode init va être invoquée au démarrage de l'application.
 	@EventListener(ContextRefreshedEvent.class)
 	public void init() throws Exception {
-
 		if(isDataInit) {
 			List<MesurePollution> listeStationPollution = initUtils.insertionMesurePollution();
 			initUtils.insertionCommunes();
-			initUtils.insertionValueCommunePollutionPM10();
+			initUtils.moyennesDepartements();
 		}
-
 	}
 
 }

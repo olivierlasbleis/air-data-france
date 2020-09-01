@@ -27,9 +27,9 @@ public class StationPollutionService {
 
 
 
-	public List<StationPollution> findAll() {
+	public List<StationPollution> findAllStationsAvecMesuresMoinsDeSeptJours() {
 		// TODO Auto-generated method stub
-		return stationPollutionRepository.findAll();
+		return stationPollutionRepository.findAllStationsAvecMesuresMoinsDeSeptJours();
 	}
 
 
@@ -38,6 +38,46 @@ public class StationPollutionService {
 		// TODO Auto-generated method stub
 		return stationPollutionRepository.findByPolluant(typePollution);
 	}
+
+
+
+	public List<StationPollution> findAllPM10() {
+		return stationPollutionRepository.findAllPM10();
+	}
+
+
+
+	public List<StationPollution> findAllCO() {
+		return stationPollutionRepository.findAllCO();
+	}
+
+
+
+	public List<StationPollution> findAllNO2() {
+		return stationPollutionRepository.findAllNO2();
+	}
+
+
+
+	public List<StationPollution> findAllO3() {
+		return stationPollutionRepository.findAllO3();
+	}
+
+
+
+	public List<StationPollution> findAllPM25() {
+		return stationPollutionRepository.findAllPM25();
+	}
+
+
+
+	public List<StationPollution> findAllSO2() {
+		return stationPollutionRepository.findAllSO2();
+	}
+
+
+
+	
 
 	
 }
