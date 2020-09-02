@@ -16,13 +16,13 @@ public class DonneePollutionService {
 
 	public DonneePollutionVue convertToDonneePollutionVue(DonneePollution donneePollution) {
 
-		Double valeur = donneePollution.getValeur();
+		Double valeur = round(donneePollution.getValeur(),1);
 
 		 String uniteDeMesure = donneePollution.getUniteDeMesure();
 		 String dateDeMesure = "";
 		 String ageDeLaMesure = "";
 		 if (donneePollution.getDateDeMesure() != null) {
-			 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy - HH:mm");
+			 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
 			 dateDeMesure = donneePollution.getDateDeMesure().format(formatter);
 
 			 ZonedDateTime dateNow = ZonedDateTime.now();
@@ -41,5 +41,14 @@ public class DonneePollutionService {
 		  
 		return new DonneePollutionVue(valeur, uniteDeMesure, dateDeMesure,ageDeLaMesure);
 		
+	}
+	
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    long factor = (long) Math.pow(10, places);
+	    value = value * factor;
+	    long tmp = Math.round(value);
+	    return (double) tmp / factor;
 	}
 }
