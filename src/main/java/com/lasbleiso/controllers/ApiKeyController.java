@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-@RequestMapping("station-pollutions")
+@RequestMapping("test")
 public class ApiKeyController {
 
 	@GetMapping
 	public String getApiKey() {
-		return "";
+		return "c'est bon ça marche";
 	}
 }
