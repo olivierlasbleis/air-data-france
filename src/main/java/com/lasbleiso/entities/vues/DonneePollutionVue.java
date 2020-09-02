@@ -10,7 +10,6 @@ import javax.persistence.Id;
 public class DonneePollutionVue {
 
 	
-	private String typePollution;
 
 	private Double valeur;
 
@@ -20,10 +19,9 @@ public class DonneePollutionVue {
 
 	private String ageDeLaMesure;
 
-	public DonneePollutionVue(String typePollution, Double valeur, String uniteDeMesure, String dateDeMesure,
+	public DonneePollutionVue(Double valeur, String uniteDeMesure, String dateDeMesure,
 			String ageDeLaMesure) {
 		super();
-		this.typePollution = typePollution;
 		this.valeur = valeur;
 		this.uniteDeMesure = uniteDeMesure;
 		this.dateDeMesure = dateDeMesure;
@@ -32,14 +30,6 @@ public class DonneePollutionVue {
 
 	public DonneePollutionVue() {
 		super();
-	}
-
-	public String getTypePollution() {
-		return typePollution;
-	}
-
-	public void setTypePollution(String typePollution) {
-		this.typePollution = typePollution;
 	}
 
 	public Double getValeur() {

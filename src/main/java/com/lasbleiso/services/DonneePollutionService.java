@@ -15,7 +15,6 @@ import com.lasbleiso.entities.vues.DonneePollutionVue;
 public class DonneePollutionService {
 
 	public DonneePollutionVue convertToDonneePollutionVue(DonneePollution donneePollution) {
-		 String typePollution = donneePollution.getTypePollution();
 
 		Double valeur = donneePollution.getValeur();
 
@@ -40,7 +39,7 @@ public class DonneePollutionService {
 		 
 		
 		  
-		return new DonneePollutionVue(typePollution, valeur, uniteDeMesure, dateDeMesure,ageDeLaMesure);
+		return new DonneePollutionVue(valeur, uniteDeMesure, dateDeMesure,ageDeLaMesure);
 		
 	}
 }
